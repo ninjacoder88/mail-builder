@@ -51,6 +51,8 @@ namespace Ninjasoft.MailBuilder
             return this;
         }
 
+        public MailMessage Build() => _mailMessage;
+
         public void Send()
         {
             using(var client = _smtpClient)

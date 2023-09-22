@@ -1,4 +1,6 @@
-﻿namespace Ninjasoft.MailBuilder
+﻿using System.Net.Mail;
+
+namespace Ninjasoft.MailBuilder
 {
     public interface IMailMessageBuilder
     {
@@ -13,6 +15,8 @@
         IMailMessageBuilder AddRecipient(string address);
 
         IMailMessageBuilder AddRecipient(string address, string displayName);
+
+        MailMessage Build();
 
         void Send();
 
