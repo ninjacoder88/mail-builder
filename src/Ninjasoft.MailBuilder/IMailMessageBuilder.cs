@@ -4,6 +4,10 @@ namespace Ninjasoft.MailBuilder
 {
     public interface IMailMessageBuilder
     {
+        IMailMessageBuilder AddAttachment(Attachment attachment);
+
+        IMailMessageBuilder AddAttachment(string fileName);
+
         IMailMessageBuilder AddBlankCarbonCopyRecipient(string address);
 
         IMailMessageBuilder AddBlankCarbonCopyRecipient(string address, string displayName);

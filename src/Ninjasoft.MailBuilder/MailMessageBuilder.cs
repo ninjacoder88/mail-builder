@@ -15,6 +15,21 @@ namespace Ninjasoft.MailBuilder
             _mailMessage = new MailMessage();
         }
 
+        public IMailMessageBuilder AddAttachment(Attachment attachment)
+        {
+            _mailMessage.Attachments.Add(attachment);
+            return this;
+        }
+
+        public IMailMessageBuilder AddAttachment(string fileName)
+        {
+            if(!File.Exists(fileName))
+                throw new FileNotFoundException();
+
+            _mailMessage.Attachments.Add(new Attachment(fileName));
+            return this;
+        }
+
         public IMailMessageBuilder AddBlankCarbonCopyRecipient(string address)
         {
             _mailMessage.Bcc.Add(address);
